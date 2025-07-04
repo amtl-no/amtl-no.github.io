@@ -15,9 +15,19 @@
 -->
 
 <link rel="stylesheet" href="/assets/css/style.css">
+
+<!-- Web App Manifest -->
 <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+<!-- Icons -->
+<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/web-app-manifest-192x192.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
 <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
-<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+
+<!-- Mobile / iOS -->
+<meta name="apple-mobile-web-app-title" content="amtl.no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#ffffff">
