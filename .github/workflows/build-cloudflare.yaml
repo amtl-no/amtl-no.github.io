@@ -44,7 +44,7 @@ jobs:
       - name: Deploy to Cloudflare
         uses: cloudflare/pages-action@v1
         with:
-          api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          project_name: amtl-no
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: amtl-no
           directory: ./
