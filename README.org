@@ -72,9 +72,7 @@ Creative Commons Attribution-NonCommercial 4.0 International
 
 (SPDX-License-Identifier: CC-BY-NC-4.0)
 
-Se =LICENSES/CC-BY-NC-4.0.txt= for fulltekst.
-
-https://creativecommons.org/licenses/by-nc/4.0/
+Se =LICENSES/CC-BY-NC-4.0.txt= for fulltekst, og https://creativecommons.org/licenses/by-nc/4.0/.
 #+END_QUOTE
 
 ** PGP-nøkler
@@ -86,9 +84,7 @@ CC0 1.0 Universal (Public Domain Dedication)
 
 (SPDX-License-Identifier: CC0-1.0)  
 
-Se =LICENSES/CC0-1.0.txt= for fulltekst.
-
-https://creativecommons.org/publicdomain/zero/1.0/
+Se =LICENSES/CC0-1.0.txt= for fulltekst, og https://creativecommons.org/publicdomain/zero/1.0/.
 #+END_QUOTE
 
 ** Dokumentasjon og denne README-filen
