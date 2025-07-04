@@ -15,4 +15,5 @@ Files: pgp/*.asc
 License: CC0-1.0
 
 Files: README.org
-License: GPL-3.0-or-laters
+Copyright: 2025 Arne Magnus Tveita Løken
+License: GPL-3.0-or-later
