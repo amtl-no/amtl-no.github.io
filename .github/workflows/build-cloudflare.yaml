@@ -15,31 +15,36 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-BEGIN {
-  infile = ENVIRON["INPUT_ORG"]
+name: Build & Deploy Cloudflare Pages
 
-  # Les hoved-URL fra CNAME-filen
-  while ((getline line < "CNAME") > 0) {
-    domain = line   # Vi antar at CNAME-filen inneholder ett domene (f.eks. amtl.no)
-  }
+on:
+  push:
+    branches: [main]
 
-  canonical_url = "https://" domain   # Sett URL for index.html som root
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-  # Hvis filen ikke er index.org, sett canonical-url basert på filnavnet
-  gsub("^src/", "", infile)  # Fjern 'src/'-prefiks
-  gsub(".org$", "", infile)  # Fjern '.org'-suffiks
-  if (infile != "index") {
-    canonical_url = "https://" domain "/" infile
-  }
-  
-  # Sett canonical URL i headeren
-  while ((getline line < ENVIRON["HEADER_TEMPLATE"]) > 0) {
-    gsub("@CANONICAL_URL@", canonical_url, line)
-    gsub("@INPUT_ORG@", infile, line)
-    print line
-  }
-}
+      - name: Set up Emacs
+        uses: purcell/setup-emacs@master
+        with:
+          version: '28.2'  
 
-{
-  print
-}
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make tidy
+
+      - name: Build site
+        run: make
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/pages-action@v1
+        with:
+          api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          project_name: amtl-no
+          directory: ./
