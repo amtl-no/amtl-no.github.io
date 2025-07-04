@@ -1,0 +1,12 @@
+# Ekskluder lisensmapper fra git archive
+LICENSES/* export-ignore
+.reuse/* export-ignore
+
+# Sørg for Unix-linjeendinger
+*.sh     text eol=lf
+*.html   text eol=lf
+*.css    text eol=lf
+*.org    text eol=lf
+*.tex    text eol=lf
+*.roff   text eol=lf
+*.asc    text eol=lf

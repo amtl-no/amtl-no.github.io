@@ -1,0 +1,24 @@
+#+TITLE: Arne Magnus Tveita Løken
+#+AUTHOR: Arne Magnus Tveita Løken
+#+LANGUAGE: nb
+#+HTML_HEAD: <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+
+#+COMMENT: SPDX-License-Identifier: GPL-3.0-or-later
+#+COMMENT: This file is part of the amtl-no.github.io-project.
+#+COMMENT: Copyright (C) 2025 Arne Magnus Tveita Løken
+#+COMMENT:
+#+COMMENT: This program is free software: you can redistribute it and/or modify
+#+COMMENT: it under the terms of the GNU General Public License as published by
+#+COMMENT: the Free Software Foundation, either version 3 of the License, or
+#+COMMENT: (at your option) any later version.
+#+COMMENT:
+#+COMMENT: This program is distributed in the hope that it will be useful,
+#+COMMENT: but WITHOUT ANY WARRANTY; without even the implied warranty of
+#+COMMENT: MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#+COMMENT: GNU General Public License for more details.
+#+COMMENT:
+#+COMMENT: You should have received a copy of the GNU General Public License
+#+COMMENT: along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+* Hei!
+Velkommen til min personlige nettside.
