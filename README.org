@@ -1,0 +1,78 @@
+#+TITLE: Statisk nettside - kildekode og struktur
+#+AUTHOR: Arne Magnus Tveita Løken
+#+OPTIONS: toc:2
+#+LANGUAGE: nb
+#+STARTUP: showall
+
+# SPDX-License-Identifier: GPL-3.0-or-later
+# This file is part of the "amtl-no.github.io"-project.
+# Copyright (C) 2025 Arne Magnus Tveita Løken
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+Dette repoet inneholder kildekoden til min statiske personlige nettside og CV.
+Formålet er å tilby en lettvekts, tekstbasert og versjonskontrollert tilnærming til egenpresentasjon,
+inkludert HTML, CSS, PGP-nøkkel og CV skrevet i ~.tex~, ~.roff~, eller tilsvarende formater.
+
+* Innhold
+Følgende typer innhold vil inngå i dette repoet:
+
+- Statisk nettside i HTML og CSS
+- Kilde til CV i ~groff~ og/eller ~LaTeX~ eller tilsvarende
+- (Muligens) generert PDF-visning av CV
+- Offentlig PGP-nøkkel
+- Lisensfiler: `LICENSE` (GPLv3) og `COPYING` (identisk innhold)
+
+* Bruk
+Repoet kan klones og brukes som utgangspunkt for egen nettside eller CV-struktur,
+forutsatt at lisensvilkårene nedenfor respekteres.
+
+* Lisensiering
+
+** Kode og kildefiler
+All kode i dette repoet – inkludert HTML, CSS, shellscript og kildefiler til CV (for eksempel i ~.tex~ eller ~.roff~) – er lisensiert under:
+
+#+BEGIN_QUOTE
+GNU General Public License v3.0 or later  
+(SPDX-License-Identifier: GPL-3.0-or-later)  
+Se =LICENSE= og =COPYING= for fulltekst.
+#+END_QUOTE
+
+** Dokumenter og visningsfiler
+PDF-er og andre visningsdokumenter (dersom inkludert) er lisensiert under:
+
+#+BEGIN_QUOTE
+Creative Commons Attribution-NonCommercial 4.0 International
+(SPDX-License-Identifier: CC-BY-NC-4.0)
+https://creativecommons.org/licenses/by-nc/4.0/
+#+END_QUOTE
+
+** PGP-nøkler
+Offentlige PGP-nøkler anses som offentlig metadata og gis eksplisitt CC0-1.0-lisens:
+
+#+BEGIN_QUOTE
+CC0 1.0 Universal (Public Domain Dedication)  
+(SPDX-License-Identifier: CC0-1.0)  
+https://creativecommons.org/publicdomain/zero/1.0/
+#+END_QUOTE
+
+** Dokumentasjon og denne README-filen
+Denne README-filen (~README.org~) er i seg selv lisensiert under:
+
+#+BEGIN_QUOTE
+GNU General Public License v3.0 or later  
+(SPDX-ID: GPL-3.0-or-later)
+#+END_QUOTE
+
+Ved spørsmål om gjenbruk eller avklaringer, ta gjerne kontakt.
