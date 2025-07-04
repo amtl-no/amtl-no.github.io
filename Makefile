@@ -35,5 +35,9 @@ all: $(HTML_FILES)
 	INPUT_ORG="$<" HEADER_TEMPLATE="$(HEADER_TEMPLATE)" \
 	awk -f scripts/inject-html-header.awk $@ > $@.tmp && mv $@.tmp $@
 
+	@echo "Tidying $@"
+	tidy -m -utf8 -quiet -indent --drop-empty-elements yes --show-warnings no $@ || true
+
+
 clean:
 	rm -f *.html

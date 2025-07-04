@@ -36,9 +36,9 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y make
+          sudo apt-get install -y make tidy
 
-      - name: Export Org to HTML
+      - name: Build site
         run: make
 
       - name: Deploy to GitHub Pages
