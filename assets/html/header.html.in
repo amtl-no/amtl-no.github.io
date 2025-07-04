@@ -16,6 +16,9 @@
 
 <link rel="stylesheet" href="/assets/css/style.css">
 
+<!-- Conditional canonical link -->
+<link rel="canonical" href="@CANONICAL_URL@">
+
 <!-- Web App Manifest -->
 <link rel="manifest" href="/assets/favicon/site.webmanifest">
 
@@ -31,3 +34,4 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#ffffff">
+

@@ -17,13 +17,29 @@
 
 BEGIN {
   infile = ENVIRON["INPUT_ORG"]
-}
-FNR == 1 {
+
+  # Les hoved-URL fra CNAME-filen
+  while ((getline line < "CNAME") > 0) {
+    domain = line   # Vi antar at CNAME-filen inneholder ett domene (f.eks. amtl.no)
+  }
+
+  canonical_url = "https://" domain   # Sett URL for index.html som root
+
+  # Hvis filen ikke er index.org, sett canonical-url basert på filnavnet
+  gsub("^src/", "", infile)  # Fjern 'src/'-prefiks
+  gsub(".org$", "", infile)  # Fjern '.org'-suffiks
+  if (infile != "index") {
+    canonical_url = "https://" domain "/" infile
+  }
+  
+  # Sett canonical URL i headeren
   while ((getline line < ENVIRON["HEADER_TEMPLATE"]) > 0) {
+    gsub("@CANONICAL_URL@", canonical_url, line)
     gsub("@INPUT_ORG@", infile, line)
     print line
   }
 }
+
 {
   print
 }
