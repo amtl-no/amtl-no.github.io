@@ -21,6 +21,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
+# This repository is REUSE-compliant. See https://reuse.software/spec/ for details.
+
+
 Dette repoet inneholder kildekoden til min statiske personlige nettside og CV.
 Formålet er å tilby en lettvekts, tekstbasert og versjonskontrollert tilnærming til egenpresentasjon,
 inkludert HTML, CSS, PGP-nøkkel og CV skrevet i ~.tex~, ~.roff~, eller tilsvarende formater.
@@ -41,7 +44,8 @@ Følgende typer innhold vil inngå i dette repoet:
 - Kilde til CV i ~groff~ og/eller ~LaTeX~ eller tilsvarende
 - (Muligens) generert PDF-visning av CV
 - Offentlig PGP-nøkkel
-- Lisensfiler: `COPYING` (GPLv3) 
+- Lisensfiler: =COPYING= (GPLv3) , =LICENSES/*=
+- Lisensfilene følger REUSE-format: =LICENSES/SPDX-ID.txt=
 
 * Bruk
 Repoet kan klones og brukes som utgangspunkt for egen nettside eller CV-struktur,
@@ -55,7 +59,7 @@ All kode i dette repoet – inkludert HTML, CSS, shellscript og kildefiler til C
 #+BEGIN_QUOTE
 GNU General Public License v3.0 or later  
 (SPDX-License-Identifier: GPL-3.0-or-later)  
-Se =COPYING= for fulltekst, og https://www.gnu.org/licenses/.
+Se =COPYING= eller =LICENSES/GPL-3.0-or-later.txt= for fulltekst, og https://www.gnu.org/licenses/.
 #+END_QUOTE
 
 ** Dokumenter og visningsfiler
@@ -64,15 +68,18 @@ PDF-er og andre visningsdokumenter (dersom inkludert) er lisensiert under:
 #+BEGIN_QUOTE
 Creative Commons Attribution-NonCommercial 4.0 International
 (SPDX-License-Identifier: CC-BY-NC-4.0)
+Se =LICENSES/CC-BY-NC-4.0.txt= for fulltekst.
 https://creativecommons.org/licenses/by-nc/4.0/
 #+END_QUOTE
 
 ** PGP-nøkler
-Offentlige PGP-nøkler anses som offentlig metadata og gis eksplisitt CC0-1.0-lisens:
+Eventuelle offentlige PGP-nøkler i dette repoet er lisensiert under CC0 1.0 for å sikre fri distribusjon.
+Dette gjelder kun nøklenes metadata. Jeg beholder eierskap og kontroll over nøkkelens bruk og identitet.
 
 #+BEGIN_QUOTE
 CC0 1.0 Universal (Public Domain Dedication)  
 (SPDX-License-Identifier: CC0-1.0)  
+Se =LICENSES/CC0-1.0.txt= for fulltekst.
 https://creativecommons.org/publicdomain/zero/1.0/
 #+END_QUOTE
 
@@ -81,7 +88,7 @@ Denne README-filen (~README.org~) er i seg selv lisensiert under:
 
 #+BEGIN_QUOTE
 GNU General Public License v3.0 or later  
-(SPDX-ID: GPL-3.0-or-later)
+(SPDX-License-Identifier: GPL-3.0-or-later)
 #+END_QUOTE
 
 Ved spørsmål om gjenbruk eller avklaringer, ta gjerne kontakt.
