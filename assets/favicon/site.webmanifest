@@ -1,6 +1,7 @@
 {
   "name": "amtl.no",
   "short_name": "amtl.no",
+  "description": "Personlig nettside for Arne Magnus Tveita Løken"
   "icons": [
     {
       "src": "/assets/favicon/web-app-manifest-192x192.png",
