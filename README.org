@@ -58,7 +58,9 @@ All kode i dette repoet – inkludert HTML, CSS, shellscript og kildefiler til C
 
 #+BEGIN_QUOTE
 GNU General Public License v3.0 or later  
+
 (SPDX-License-Identifier: GPL-3.0-or-later)  
+
 Se =COPYING= eller =LICENSES/GPL-3.0-or-later.txt= for fulltekst, og https://www.gnu.org/licenses/.
 #+END_QUOTE
 
@@ -67,8 +69,11 @@ PDF-er og andre visningsdokumenter (dersom inkludert) er lisensiert under:
 
 #+BEGIN_QUOTE
 Creative Commons Attribution-NonCommercial 4.0 International
+
 (SPDX-License-Identifier: CC-BY-NC-4.0)
+
 Se =LICENSES/CC-BY-NC-4.0.txt= for fulltekst.
+
 https://creativecommons.org/licenses/by-nc/4.0/
 #+END_QUOTE
 
@@ -78,8 +83,11 @@ Dette gjelder kun nøklenes metadata. Jeg beholder eierskap og kontroll over nø
 
 #+BEGIN_QUOTE
 CC0 1.0 Universal (Public Domain Dedication)  
+
 (SPDX-License-Identifier: CC0-1.0)  
+
 Se =LICENSES/CC0-1.0.txt= for fulltekst.
+
 https://creativecommons.org/publicdomain/zero/1.0/
 #+END_QUOTE
 
@@ -88,6 +96,7 @@ Denne README-filen (~README.org~) er i seg selv lisensiert under:
 
 #+BEGIN_QUOTE
 GNU General Public License v3.0 or later  
+
 (SPDX-License-Identifier: GPL-3.0-or-later)
 #+END_QUOTE
 
