@@ -25,7 +25,16 @@ Dette repoet inneholder kildekoden til min statiske personlige nettside og CV.
 Formålet er å tilby en lettvekts, tekstbasert og versjonskontrollert tilnærming til egenpresentasjon,
 inkludert HTML, CSS, PGP-nøkkel og CV skrevet i ~.tex~, ~.roff~, eller tilsvarende formater.
 
-* Innhold
+* Innholdsfortegnelse :toc:
+- [[#repoets-innhold][Repoets innhold]]
+- [[#bruk][Bruk]]
+- [[#lisensiering][Lisensiering]]
+  - [[#kode-og-kildefiler][Kode og kildefiler]]
+  - [[#dokumenter-og-visningsfiler][Dokumenter og visningsfiler]]
+  - [[#pgp-nøkler][PGP-nøkler]]
+  - [[#dokumentasjon-og-denne-readme-filen][Dokumentasjon og denne README-filen]]
+
+* Repoets innhold
 Følgende typer innhold vil inngå i dette repoet:
 
 - Statisk nettside i HTML og CSS
