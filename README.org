@@ -41,7 +41,7 @@ Følgende typer innhold vil inngå i dette repoet:
 - Kilde til CV i ~groff~ og/eller ~LaTeX~ eller tilsvarende
 - (Muligens) generert PDF-visning av CV
 - Offentlig PGP-nøkkel
-- Lisensfiler: `LICENSE` (GPLv3) og `COPYING` (identisk innhold)
+- Lisensfiler: `COPYING` (GPLv3) 
 
 * Bruk
 Repoet kan klones og brukes som utgangspunkt for egen nettside eller CV-struktur,
@@ -55,7 +55,7 @@ All kode i dette repoet – inkludert HTML, CSS, shellscript og kildefiler til C
 #+BEGIN_QUOTE
 GNU General Public License v3.0 or later  
 (SPDX-License-Identifier: GPL-3.0-or-later)  
-Se =LICENSE= og =COPYING= for fulltekst, og https://www.gnu.org/licenses/.
+Se =COPYING= for fulltekst, og https://www.gnu.org/licenses/.
 #+END_QUOTE
 
 ** Dokumenter og visningsfiler
