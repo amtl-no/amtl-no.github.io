@@ -1,7 +1,8 @@
 #+TITLE: Arne Magnus Tveita Løken
 #+AUTHOR: Arne Magnus Tveita Løken
 #+LANGUAGE: nb
-#+HTML_HEAD: <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+#+HTML_HEAD: <link rel="stylesheet" href="assets/css/style.css" />
+#+HTML_HEAD: <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
 #+COMMENT: SPDX-License-Identifier: GPL-3.0-or-later
 #+COMMENT: This file is part of the amtl-no.github.io-project.
