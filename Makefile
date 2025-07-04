@@ -25,11 +25,13 @@ all: $(HTML_FILES)
 
 %.html: src/%.org $(HEADER_TEMPLATE)
 	@echo "Generating $@ from $<"
-	emacs --batch -l org --eval "(find-file \"$<\")" \
-	       --eval '(org-html-export-to-html)' --eval '(kill-emacs)'
-
+	emacs --batch -l org \
+	  --eval '(setq org-html-doctype "html5")' \
+	  --eval '(setq org-html-html5-fancy t)' \
+	  --eval "(find-file \"$<\")" \
+	  --eval '(org-html-export-to-html)' \
+	  --eval '(kill-emacs)'
 	mv src/$*.html $@
-
 	INPUT_ORG="$<" HEADER_TEMPLATE="$(HEADER_TEMPLATE)" \
 	awk -f scripts/inject-html-header.awk $@ > $@.tmp && mv $@.tmp $@
 
