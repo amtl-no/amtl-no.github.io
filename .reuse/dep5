@@ -4,11 +4,11 @@ Files: COPYING LICENSES/*
 Copyright: 2025 Arne Magnus Tveita Løken
 License: GPL-3.0-or-later
 
-Files: *.html *.css *.sh *.tex *.roff
+Files: *.awk *.sh *.tex *.roff
 Copyright: 2025 Arne Magnus Tveita Løken
 License: GPL-3.0-or-later
 
-Files: *.pdf
+Files: *.html *.css *.pdf
 License: CC-BY-NC-4.0
 
 Files: pgp/*.asc
