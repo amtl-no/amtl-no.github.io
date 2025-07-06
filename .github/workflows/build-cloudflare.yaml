@@ -1,3 +1,4 @@
+
 # SPDX-License-Identifier: GPL-3.0-or-later
 # This file is part of the amtl-no.github.io project.
 # Copyright (C) 2025 Arne Magnus Tveita Løken
@@ -15,7 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-name: Build & Deploy Cloudflare Pages
+name: Build & Deploy GitHub Pages
 
 on:
   push:
@@ -41,10 +42,10 @@ jobs:
       - name: Build site
         run: make
 
-      - name: Deploy to Cloudflare
-        uses: cloudflare/pages-action@v1
+      - name: Deploy built files to `cf-pages` branch for CloudflareG
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: amtl-no
-          directory: ./
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: cf-pages
+          force_orphan: true
