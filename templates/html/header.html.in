@@ -17,7 +17,7 @@
 
 <html lang="no">
 
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v=@STYLE_VERSION@">
 
 <!-- Conditional canonical link -->
 <link rel="canonical" href="@CANONICAL_URL@">

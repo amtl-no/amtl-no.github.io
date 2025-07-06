@@ -17,14 +17,17 @@
 
 OUTPUT_DIR := output
 ASSET_DIR := assets
+TEMPLATE_DIR := templates
 TOOLS_DIR := tools
 STATIC_FILES := robots.txt
 SITE_CONFIG := site.conf
 
+STYLE_VERSION := $(shell git log -n 1 --pretty=format:%h -- assets/css/style.css 2>/dev/null || echo unknown)
+
 ORG_FILES := $(wildcard src/*.org)
 HTML_FILES := $(patsubst src/%.org,%.html,$(ORG_FILES))
 
-HEADER_TEMPLATE := $(ASSET_DIR)/html/header.html.in
+HEADER_TEMPLATE := $(TEMPLATE_DIR)/html/header.html.in
 
 VNU_JAR := $(TOOLS_DIR)/vnu.jar
 VALIDATION_DIR := $(OUTPUT_DIR)/validation
@@ -45,12 +48,17 @@ all: $(HTML_FILES) copy-assets copy-static validate
 	  --eval '(org-html-export-to-html)' \
 	  --eval '(kill-emacs)'
 	mv src/$*.html $@
-	INPUT_ORG="$<" HEADER_TEMPLATE="$(HEADER_TEMPLATE)" DOMAIN="$(DOMAIN)" \
-	awk -f scripts/inject-html-header.awk $@ > $(OUTPUT_DIR)/$*.html && rm -f $@
+
+	@echo "Injecting header into $@"
+	@INPUT_ORG="$<" HEADER_TEMPLATE="$(HEADER_TEMPLATE)" DOMAIN="$(DOMAIN)" STYLE_VERSION="$(STYLE_VERSION)" \
+	awk -f scripts/inject-html-header.awk $@ > $(OUTPUT_DIR)/$*.html || { echo 'Header injection failed'; exit 1; }
+	@rm -f $@
+
 	@echo "Tidying $(OUTPUT_DIR)/$*.html"
 	tidy -m -utf8 -quiet -indent --drop-empty-elements yes --show-warnings no $(OUTPUT_DIR)/$*.html || true
 
-	VALIDATION_JSON="$(VALIDATION_DIR)/$*.json" \
+	@echo "Injecting validation badge into $@"
+	@VALIDATION_JSON="$(VALIDATION_DIR)/$*.json" \
 	awk -f scripts/inject-validation-status.awk $(OUTPUT_DIR)/$*.html > $(OUTPUT_DIR)/$*.tmp && mv $(OUTPUT_DIR)/$*.tmp $(OUTPUT_DIR)/$*.html
 
 copy-assets:
@@ -63,7 +71,7 @@ copy-static:
 
 download-vnu:
 	mkdir -p $(TOOLS_DIR)
-	test -f $(VNU_JAR) || curl -fL -o $(VNU_JAR) https://github.com/validator/validator/releases/download/latest/vnu.jar 
+	test -f $(VNU_JAR) || curl -fL -o $(VNU_JAR) https://github.com/validator/validator/releases/download/latest/vnu.jar
 
 validate: download-vnu $(HTML_FILES)
 	mkdir -p $(VALIDATION_DIR)
@@ -74,4 +82,4 @@ validate: download-vnu $(HTML_FILES)
 	done
 
 clean:
-	rm -f *.html
+	rm -rf $(OUTPUT_DIR)

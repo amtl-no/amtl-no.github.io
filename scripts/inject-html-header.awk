@@ -18,6 +18,7 @@
 BEGIN {
   infile = ENVIRON["INPUT_ORG"]
   domain = ENVIRON["DOMAIN"]
+  style_version = ENVIRON["STYLE_VERSION"]
 
   canonical_url = "https://" domain   # Sett URL for index.html som root
 
@@ -32,6 +33,7 @@ BEGIN {
   while ((getline line < ENVIRON["HEADER_TEMPLATE"]) > 0) {
     gsub("@CANONICAL_URL@", canonical_url, line)
     gsub("@INPUT_ORG@", infile, line)
+	gsub("@STYLE_VERSION@", style_version, line)
     print line
   }
 }
