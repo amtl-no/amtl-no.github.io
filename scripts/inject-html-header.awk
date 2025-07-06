@@ -16,7 +16,8 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 BEGIN {
-  infile = ENVIRON["INPUT_ORG"]
+  raw_infile = ENVIRON["INPUT_ORG"]
+  infile = raw_infile
   domain = ENVIRON["DOMAIN"]
   style_version = ENVIRON["STYLE_VERSION"]
 
@@ -32,7 +33,7 @@ BEGIN {
   # Sett canonical URL i headeren
   while ((getline line < ENVIRON["HEADER_TEMPLATE"]) > 0) {
     gsub("@CANONICAL_URL@", canonical_url, line)
-    gsub("@INPUT_ORG@", infile, line)
+    gsub("@INPUT_ORG@", raw_infile, line)
 	gsub("@STYLE_VERSION@", style_version, line)
     print line
   }
