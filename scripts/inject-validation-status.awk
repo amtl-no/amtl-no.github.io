@@ -33,6 +33,9 @@ BEGIN {
 	} else {
 		badge = "<span class=\"badge badge-invalid\">Invalid HTML</span>"
 	}
+	
+	link = "<p class=\"validation\"><a href=\"" href "\" title=\"Validated locally using vnu.jar (https://validator.github.io/validator/)\">Validation status: " badge "</a></p>"
+	
 }
 
 # Funksjon: basename uten path
@@ -44,14 +47,16 @@ function basename(path,   i, parts) {
 {
 	if ($0 ~ /<p class="validation"><a href=$/) {
 		# Dette er første linje i en brutt <a href="..."> tag
+		indent = gensub(/^([ \t]*).*/, "\\1", 1, $0)
 		getline    # Les neste linje, som inneholder validator-lenka
-		print "<p class=\"validation\"><a href=\"" href "\">Validation status: " badge "</a></p>"
+		print indent link
 		next       # Hopp over begge linjene
 	}
 
 	if ($0 ~ /validator\.w3\.org\/check\?uri=referer/) {
 		# fallback hvis hele taggen er på én linje
-		print "<p class=\"validation\"><a href=\"" href "\">Validation status: " badge "</a></p>"
+		indent = gensub(/^([ \t]*).*/, "\\1", 1, $0)
+		print indent link
 		next
 	}
 
