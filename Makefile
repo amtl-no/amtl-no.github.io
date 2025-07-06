@@ -18,12 +18,15 @@
 ORG_FILES := $(wildcard src/*.org)
 HTML_FILES := $(patsubst src/%.org,%.html,$(ORG_FILES))
 HEADER_TEMPLATE := assets/html/header.html.in
+SITE_CONFIG := site.conf
+
+include $(SITE_CONFIG)
 
 .PHONY: all clean
 
 all: $(HTML_FILES)
 
-%.html: src/%.org $(HEADER_TEMPLATE)
+%.html: src/%.org $(HEADER_TEMPLATE) $(SITE_CONFIG)
 	@echo "Generating $@ from $<"
 	emacs --batch -l org \
 	  --eval '(setq org-html-doctype "html5")' \
@@ -32,7 +35,7 @@ all: $(HTML_FILES)
 	  --eval '(org-html-export-to-html)' \
 	  --eval '(kill-emacs)'
 	mv src/$*.html $@
-	INPUT_ORG="$<" HEADER_TEMPLATE="$(HEADER_TEMPLATE)" \
+	INPUT_ORG="$<" HEADER_TEMPLATE="$(HEADER_TEMPLATE)" DOMAIN="$(DOMAIN)" \
 	awk -f scripts/inject-html-header.awk $@ > $@.tmp && mv $@.tmp $@
 
 	@echo "Tidying $@"
