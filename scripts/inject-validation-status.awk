@@ -1,4 +1,3 @@
-
 # This file is part of the amtl-no.github.io project.
 # Copyright (C) 2025 Arne Magnus Tveita Løken
 #
