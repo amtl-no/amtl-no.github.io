@@ -15,11 +15,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-name: Build & Deploy CloudflarePages
+name: Build & Deploy Cloudflare Pages
 
 on:
   push:
     branches: [main]
+    paths:
+      - 'src/**'
+      - 'assets/**'
+      - 'Makefile'
+      - 'site.conf'
+      - 'scripts/**'
 
 jobs:
   build:
@@ -41,7 +47,7 @@ jobs:
       - name: Build site
         run: make
 
-      - name: Deploy built files to `cf-pages` branch for CloudflareG
+      - name: Deploy built files to `cf-pages` branch for Cloudflare
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

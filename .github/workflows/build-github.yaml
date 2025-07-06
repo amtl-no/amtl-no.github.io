@@ -20,6 +20,12 @@ name: Build & Deploy GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - 'src/**'
+      - 'assets/**'
+      - 'Makefile'
+      - 'site.conf'
+      - 'scripts/**'
 
 jobs:
   build:
