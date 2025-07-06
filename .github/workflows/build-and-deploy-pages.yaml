@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-name: Build & Deploy Cloudflare Pages
+name: Build and Deploy Site
 
 on:
   push:
@@ -29,6 +29,7 @@ on:
 
 jobs:
   build:
+    name: Build Pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,7 +40,7 @@ jobs:
       - name: Set up Emacs
         uses: purcell/setup-emacs@master
         with:
-          version: '28.2'  
+          version: '28.2'
 
       - name: Install dependencies
         run: |
@@ -49,10 +50,35 @@ jobs:
       - name: Build site
         run: make
 
-      - name: Deploy built files to `cf-pages` branch for Cloudflare
+      - name: Upload site output
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-output
+          path: ./output/
+
+  deploy:
+    name: Deploy to Pages Targets
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch: [gh-pages, cf-pages]
+    steps:
+      - name: Checkout (for git config)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: site-output
+          path: ./output/
+
+      - name: Deploy to ${{ matrix.branch }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
-          publish_branch: cf-pages
+          publish_branch: ${{ matrix.branch }}
           force_orphan: true
