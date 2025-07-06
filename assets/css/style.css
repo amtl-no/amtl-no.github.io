@@ -42,3 +42,32 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 4px;
 }
+
+/* Badge styles for W3C validation status (injected via AWK) */
+.badge {
+  display: inline-block;
+  padding: 0.1em 0.4em;
+  border-radius: 0.3em;
+  font-weight: bold;
+  font-size: 0.9em;
+  font-family: inherit;
+}
+
+.badge-valid {
+  background-color: #2ecc71; 
+  color: white;
+}
+
+.badge-invalid {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.badge-valid::before {
+  content: "✅ ";
+}
+
+.badge-invalid::before {
+  content: "❌ ";
+}
+

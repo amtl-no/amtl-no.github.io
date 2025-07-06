@@ -17,6 +17,7 @@
 
 OUTPUT_DIR := output
 ASSET_DIR := assets
+TOOLS_DIR := tools
 STATIC_FILES := robots.txt
 SITE_CONFIG := site.conf
 
@@ -25,11 +26,14 @@ HTML_FILES := $(patsubst src/%.org,%.html,$(ORG_FILES))
 
 HEADER_TEMPLATE := $(ASSET_DIR)/html/header.html.in
 
+VNU_JAR := $(TOOLS_DIR)/vnu.jar
+VALIDATION_DIR := $(OUTPUT_DIR)/validation
+
 include $(SITE_CONFIG)
 
-.PHONY: all clean copy-assets copy-static
+.PHONY: all clean copy-assets copy-static download-vnu validate
 
-all: $(HTML_FILES) copy-assets copy-static
+all: $(HTML_FILES) copy-assets copy-static validate
 
 %.html: src/%.org $(HEADER_TEMPLATE) $(SITE_CONFIG)
 	@echo "Generating $@ from $<"
@@ -46,6 +50,9 @@ all: $(HTML_FILES) copy-assets copy-static
 	@echo "Tidying $(OUTPUT_DIR)/$*.html"
 	tidy -m -utf8 -quiet -indent --drop-empty-elements yes --show-warnings no $(OUTPUT_DIR)/$*.html || true
 
+	VALIDATION_JSON="$(VALIDATION_DIR)/$*.json" \
+	awk -f scripts/inject-validation-status.awk $(OUTPUT_DIR)/$*.html > $(OUTPUT_DIR)/$*.tmp && mv $(OUTPUT_DIR)/$*.tmp $(OUTPUT_DIR)/$*.html
+
 copy-assets:
 	mkdir -p $(OUTPUT_DIR)/$(ASSET_DIR)
 	cp -r $(ASSET_DIR)/* $(OUTPUT_DIR)/$(ASSET_DIR)/
@@ -54,6 +61,17 @@ copy-static:
 	mkdir -p $(OUTPUT_DIR)
 	cp $(STATIC_FILES) $(OUTPUT_DIR)/
 
+download-vnu:
+	mkdir -p $(TOOLS_DIR)
+	test -f $(VNU_JAR) || curl -fL -o $(VNU_JAR) https://github.com/validator/validator/releases/download/latest/vnu.jar 
+
+validate: download-vnu $(HTML_FILES)
+	mkdir -p $(VALIDATION_DIR)
+	for file in $(OUTPUT_DIR)/*.html; do \
+		name=$$(basename $$file .html); \
+		java -jar $(VNU_JAR) --skip-non-html --format json $$file \
+	  		> $(VALIDATION_DIR)/$$name.json 2>&1 || true; \
+	done
 
 clean:
 	rm -f *.html
