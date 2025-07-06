@@ -29,8 +29,8 @@ BEGIN {
   if (infile != "index") {
     canonical_url = "https://" domain "/" infile
   }
-  
-  # Sett canonical URL i headeren
+
+  # Sett canonical-url i headeren
   while ((getline line < ENVIRON["HEADER_TEMPLATE"]) > 0) {
     gsub("@CANONICAL_URL@", canonical_url, line)
     gsub("@INPUT_ORG@", raw_infile, line)
