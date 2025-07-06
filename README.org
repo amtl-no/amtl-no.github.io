@@ -54,7 +54,7 @@ forutsatt at lisensvilkårene nedenfor respekteres.
 * Lisensiering
 
 ** Kode og kildefiler
-All kode i dette repoet – inkludert HTML, CSS, shellscript og kildefiler til CV (for eksempel i ~.tex~ eller ~.roff~) – er lisensiert under:
+All kode i dette repoet – inkludert shellscript og kildefiler til CV (for eksempel i ~.tex~ eller ~.roff~) – er lisensiert under:
 
 #+BEGIN_QUOTE
 GNU General Public License v3.0 or later  
@@ -65,7 +65,7 @@ Se =COPYING= eller =LICENSES/GPL-3.0-or-later.txt= for fulltekst, og https://www
 #+END_QUOTE
 
 ** Dokumenter og visningsfiler
-PDF-er og andre visningsdokumenter (dersom inkludert) er lisensiert under:
+CSS, HTML, PDF-er og andre visningsdokumenter (dersom inkludert) er lisensiert under:
 
 #+BEGIN_QUOTE
 Creative Commons Attribution-NonCommercial 4.0 International
