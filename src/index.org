@@ -3,7 +3,7 @@
 #+LANGUAGE: nb
 
 #+COMMENT: SPDX-License-Identifier: GPL-3.0-or-later
-#+COMMENT: This file is part of the amtl-no-pages-project.
+#+COMMENT: This file is part of the amtl-no.github.io-project.
 #+COMMENT: Copyright (C) 2025 Arne Magnus Tveita Løken
 #+COMMENT:
 #+COMMENT: This program is free software: you can redistribute it and/or modify
