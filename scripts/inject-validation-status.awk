@@ -34,7 +34,9 @@ BEGIN {
 		badge = "<span class=\"badge badge-invalid\">Invalid HTML</span>"
 	}
 	
-	link = "<p class=\"validation\"><a href=\"" href "\" title=\"Validated locally using vnu.jar (https://validator.github.io/validator/)\">Validation status: " badge "</a></p>"
+	link = "<p class=\"validation\"><a href=\"" href \
+	       "\" title=\"Validated locally using vnu.jar (https://validator.github.io/validator/)\"" \
+	       " rel=\"nofollow\">Validation status: " badge "</a></p>"
 	
 }
 
